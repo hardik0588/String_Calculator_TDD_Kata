@@ -13,4 +13,7 @@ void main() {
     test('Two comma-separated numbers are summed', () {
       expect(calc.add('3,5'), 8);
     });
+    test('Multiple comma-separated numbers are summed', () {
+      expect(calc.add('1,2,3,4,5,6'), 21);
+    });
 }

@@ -4,6 +4,7 @@ class StringCalculator {
       return 0;
     }
     final parts = numbers.split(',');
-    return parts.map(int.parse).reduce((a, b) => a + b);
+    final validParts = parts.where((e) => e.trim().isNotEmpty).map(int.parse);
+    return validParts.reduce((a, b) => a + b);
   }
 }
