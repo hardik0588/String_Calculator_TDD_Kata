@@ -3,6 +3,7 @@ class StringCalculator {
     if (numbers.isEmpty) {
       return 0;
     }
-    return int.parse(numbers);
+    final parts = numbers.split(',');
+    return parts.map(int.parse).reduce((a, b) => a + b);
   }
 }

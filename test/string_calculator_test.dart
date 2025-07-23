@@ -10,5 +10,7 @@ void main() {
     test('returns the number itself for single number', () {
       expect(calc.add('5'), 5);
     });
-
+    test('Two comma-separated numbers are summed', () {
+      expect(calc.add('3,5'), 8);
+    });
 }
