@@ -14,8 +14,22 @@ class StringCalculator {
     }
     final pattern = RegExp(delimiters.map(RegExp.escape).join('|'));
     final parts = numberSection.split(pattern);
-    final validParts = parts.where((e) => e.trim().isNotEmpty).map(int.parse);
-    return validParts.reduce((a, b) => a + b);
-  }
+    final validParts = parts.where((e) => e.trim().isNotEmpty);
 
+    List<int> negatives = [];
+    int sum = 0;
+
+    for (final part in validParts) {
+      final number = int.parse(part);
+      if (number < 0) {
+        negatives.add(number);
+      } else {
+        sum += number;
+      }
+    }
+    if (negatives.isNotEmpty) {
+      throw Exception('negative numbers not allowed ${negatives.join(',')}');
+    }
+    return sum;
+  }
 }

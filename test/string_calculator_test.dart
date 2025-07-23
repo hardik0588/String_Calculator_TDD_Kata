@@ -22,4 +22,12 @@ void main() {
     test('Supports custom delimiter defined at the beginning', () {
       expect(calc.add('//;\n1;2,4'), 7);
     });
+    test('Throws exception for negative numbers and lists them in message', () {
+      expect(
+            () => calc.add('1,-2,-5'),
+        throwsA(predicate((e) =>
+        e is Exception && e.toString().contains('negative numbers not allowed -2,-5')
+        )),
+      );
+    });
 }
