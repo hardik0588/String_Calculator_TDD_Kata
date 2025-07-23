@@ -7,5 +7,8 @@ void main() {
     test('returns 0 for empty string', () {
       expect(calc.add(''), 0);
     });
+    test('returns the number itself for single number', () {
+      expect(calc.add('5'), 5);
+    });
 
 }
