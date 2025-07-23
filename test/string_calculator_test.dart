@@ -19,4 +19,7 @@ void main() {
     test('Supports newline as delimiter along with comma', () {
       expect(calc.add('1\n2,3,4'), 10);
     });
+    test('Supports custom delimiter defined at the beginning', () {
+      expect(calc.add('//;\n1;2,4'), 7);
+    });
 }
