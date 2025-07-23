@@ -16,4 +16,7 @@ void main() {
     test('Multiple comma-separated numbers are summed', () {
       expect(calc.add('1,2,3,4,5,6'), 21);
     });
+    test('Supports newline as delimiter along with comma', () {
+      expect(calc.add('1\n2,3,4'), 10);
+    });
 }
